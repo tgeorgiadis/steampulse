@@ -1,28 +1,43 @@
-# Create T3 App
+# SteamPulse
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Check it out at https://steampulse.tgeo.dev
 
-## What's next? How do I make an app with this?
+This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app` called **SteamPulse**. SteamPulse displays key points of interest of a Steam user. 
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+I am a huge fan of the T3 Stack since it allows me to rapidly develop on both the backend and frontend with shared type safety.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Setup
+`pnpm i`
+
+`pnpm dev`
+
+## Main files of interest
+
+Most of the files in this project are boilerplatey and set up by `create-t3-app`. I recommend looking at these files for the core functionality:
+
+- `src/pages/index.tsx` - The homepage where the user enters the Steam ID of the Steam user they want to see
+- `src/pages/[steamId].tsx` - The page that displays key points of interest of a Steam user
+- `src/server/api/routers/steam.ts` - Contains the backend routes the frontend hits to fetch data of a Steam user
+
+## Todo
+- Unit Tests
+- Better Mobile Responsiveness
+
+## Nice to haves
+- Authentication
+- Caching
+
+## Technologies used
 
 - [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
+- [steamapi](https://www.npmjs.com/package/steamapi)
 
 ## Learn More
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+[Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available)
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+You can also check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app)
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
