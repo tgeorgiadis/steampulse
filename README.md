@@ -7,9 +7,12 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 I am a huge fan of the T3 Stack since it allows me to rapidly develop on both the backend and frontend with shared type safety.
 
 ## Setup
-`pnpm i`
+In the project root:
 
-`pnpm dev`
+1. Copy the `.env.example` file and rename it to `.env`. Provide your `STEAM_API_KEY` in the file 
+2. `pnpm i`
+3. `pnpm dev`
+4. Visit the dev server on localhost:3000
 
 ## Main files of interest
 
