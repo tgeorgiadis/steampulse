@@ -7,9 +7,11 @@ const steam = new SteamAPI(
   process.env.STEAM_API_KEY ?? "No STEAM_API_KEY defined in environment",
 );
 
+const SteamIdSchema = z.object({ steamId: z.string() })
+
 export const steamRouter = createTRPCRouter({
   getUserSummary: publicProcedure
-    .input(z.object({ steamId: z.string() }))
+    .input(SteamIdSchema)
     .query(async ({ input }) => {
       const { steamId } = input;
       try {
@@ -22,7 +24,7 @@ export const steamRouter = createTRPCRouter({
       }
     }),
   getRecentlyPlayedGames: publicProcedure
-    .input(z.object({ steamId: z.string() }))
+    .input(SteamIdSchema)
     .query(async ({ input }) => {
       const { steamId } = input;
       try {
@@ -41,12 +43,12 @@ export const steamRouter = createTRPCRouter({
 
         return recentGamesWithAdditionalInfo;
       } catch (error) {
-        console.error("Error: ", error);
+        console.error("Error getting recently played games: ", error);
         return [];
       }
     }),
   getMostPlayedGame: publicProcedure
-    .input(z.object({ steamId: z.string() }))
+    .input(SteamIdSchema)
     .query(async ({ input }) => {
       const { steamId } = input;
       try {
@@ -71,18 +73,17 @@ export const steamRouter = createTRPCRouter({
           genres: gameInfo?.genres as SteamGenre[],
         };
       } catch (error) {
-        console.error("Error: ", error);
+        console.error("Error getting the most played game: ", error);
         return null;
       }
     }),
 
   getGeneralStats: publicProcedure
-    .input(z.object({ steamId: z.string() }))
+    .input(SteamIdSchema)
     .query(async ({ input }) => {
       const { steamId } = input;
       try {
         const games = await steam.getUserOwnedGames(steamId);
-
         const totalGameCount = games?.length ?? 0;
 
         const totalPlaytimeInMinutes = games?.reduce((acc, game) => {
@@ -97,7 +98,6 @@ export const steamRouter = createTRPCRouter({
         };
       } catch (error) {
         console.error("Error retrieving player game stats:", error);
-
         return {
           totalGameCount: 0,
           totalPlaytime: 0,

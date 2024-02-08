@@ -1,6 +1,8 @@
 # SteamPulse
 
-Check it out at https://steampulse.tgeo.dev
+Check it out: https://steampulse.tgeo.dev
+
+Example profile: https://steampulse.tgeo.dev/76561197991700585
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app` called **SteamPulse**. SteamPulse displays key points of interest of a Steam user. 
 
@@ -28,6 +30,7 @@ Most of the files in this project are boilerplatey and set up by `create-t3-app`
 
 ## Nice to haves
 - Authentication
+- Database integration
 - Caching
 
 ## Technologies used
